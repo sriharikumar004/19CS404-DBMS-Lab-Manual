@@ -37,7 +37,7 @@ END;
 **Expected Output:**  
 Greater number is: 80
 
-<img width="790" height="716" alt="image" src="https://github.com/user-attachments/assets/1ef1e57c-ebb3-4d16-a502-5f9623ccbe93" />
+<img width="784" height="571" alt="image" src="https://github.com/user-attachments/assets/fe79c917-af41-4af1-bca5-3f633827ccb4" />
 
 ---
 
