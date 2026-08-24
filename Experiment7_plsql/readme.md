@@ -37,6 +37,22 @@ END;
 **Expected Output:**  
 Greater number is: 80
 
+**Program**
+```
+DECLARE
+    num1 NUMBER := 50;
+    num2 NUMBER := 80;
+BEGIN
+    IF num1 > num2 THEN
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num1);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num2);
+    END IF;
+END;
+
+```
+**Output**
+
 <img width="784" height="571" alt="image" src="https://github.com/user-attachments/assets/fe79c917-af41-4af1-bca5-3f633827ccb4" />
 
 ---
@@ -51,6 +67,23 @@ Greater number is: 80
 
 **Expected Output:**  
 Sum of first 10 natural numbers is: 55
+
+**Program**
+```
+DECLARE
+    n NUMBER := 10;
+    sum NUMBER := 0;
+    i NUMBER := 1;
+BEGIN
+    WHILE i <= n LOOP
+        sum := sum + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || sum);
+END;
+```
+**Output**
 
 <img width="933" height="649" alt="image" src="https://github.com/user-attachments/assets/1d31ca3d-2fe7-4d89-8a4a-8af64e508b28" />
 
@@ -68,6 +101,30 @@ Sum of first 10 natural numbers is: 55
 n = 7  
 Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 
+```
+DECLARE
+    n NUMBER := 7;
+    a NUMBER := 0;
+    b NUMBER := 1;
+    c NUMBER;
+    i NUMBER := 1;
+BEGIN
+    DBMS_OUTPUT.PUT('Fibonacci sequence: ');
+    WHILE i <= n LOOP
+        DBMS_OUTPUT.PUT(a);
+        IF i < n THEN
+            DBMS_OUTPUT.PUT(', ');
+        END IF;
+        c := a + b;
+        a := b;
+        b := c;
+        i := i + 1;
+    END LOOP;
+    DBMS_OUTPUT.NEW_LINE;
+END;
+```
+**Output**
+
 <img width="841" height="681" alt="image" src="https://github.com/user-attachments/assets/b118c793-12fa-42ba-9e58-a2a43f03ae8c" />
 
 ---
@@ -83,6 +140,24 @@ Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 n = 1535  
 Reversed number is 5351
 
+**Program**
+```
+DECLARE
+    n NUMBER := 1535;
+    rev NUMBER := 0;
+    digit NUMBER;
+BEGIN
+    WHILE n > 0 LOOP
+        digit := MOD(n, 10);
+        rev := (rev * 10) + digit;
+        n := TRUNC(n / 10);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Reversed number is: ' || rev);
+END;
+```
+
+**Output**
+
 <img width="861" height="583" alt="image" src="https://github.com/user-attachments/assets/e05d685c-629f-4e1c-92c3-90edccd7c274" />
 
 ---
@@ -97,6 +172,27 @@ Reversed number is 5351
 **Expected Output:**  
 a = 10, b = 9, c = 15  
 Largest of three number is 15
+
+**Program**
+```
+DECLARE
+    a NUMBER := 10;
+    b NUMBER := 9;
+    c NUMBER := 15;
+    largest NUMBER;
+BEGIN
+    IF a > b AND a > c THEN
+        largest := a;
+    ELSIF b > a AND b > c THEN
+        largest := b;
+    ELSE
+        largest := c;
+    END IF;
+    DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || largest);
+END;
+```
+
+**Output**
 
 <img width="764" height="608" alt="image" src="https://github.com/user-attachments/assets/33d7fe59-7da1-4e93-b368-dc4cb07fd384" />
 
