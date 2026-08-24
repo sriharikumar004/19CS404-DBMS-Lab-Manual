@@ -36,6 +36,20 @@ END;
 
 **Expected Output:**  
 Greater number is: 80
+```
+DECLARE
+    num1 NUMBER := 50;
+    num2 NUMBER := 80;
+BEGIN
+    IF num1 > num2 THEN
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num1);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num2);
+    END IF;
+END;
+```
+<img width="732" height="238" alt="image" src="https://github.com/user-attachments/assets/f8e5acbd-3db4-44d4-84eb-79ec227a5e3d" />
+
 
 ---
 
@@ -49,6 +63,22 @@ Greater number is: 80
 
 **Expected Output:**  
 Sum of first 10 natural numbers is: 55
+```
+DECLARE
+    n NUMBER := 10;
+    sum NUMBER := 0;
+    i NUMBER := 1;
+BEGIN
+    WHILE i <= n LOOP
+        sum := sum + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || sum);
+END;
+```
+<img width="743" height="245" alt="image" src="https://github.com/user-attachments/assets/eaed9bf6-961c-438e-9aed-1350113df895" />
+
 
 ---
 
