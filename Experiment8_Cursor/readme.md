@@ -122,6 +122,7 @@ END;
 ```
 
 **Output**
+
 <img width="598" height="695" alt="image" src="https://github.com/user-attachments/assets/79ee0ecc-a949-4654-a17f-839076c04367" />
 
 ---
@@ -191,6 +192,7 @@ EXCEPTION
 END;
 ```
 **Output**
+
 <img width="496" height="748" alt="image" src="https://github.com/user-attachments/assets/38a2615e-fcee-4709-b5dd-c5f9f5151545" />
 
 ---
@@ -246,6 +248,7 @@ EXCEPTION
 END;
 ```
 **Output**
+
 <img width="621" height="687" alt="image" src="https://github.com/user-attachments/assets/0265a058-039b-4a05-89cc-495d8f404b06" />
 
 ---
@@ -311,6 +314,7 @@ EXCEPTION
 END;
 ```
 **Output**
+
 <img width="617" height="776" alt="image" src="https://github.com/user-attachments/assets/aa0b47e9-de1e-4c07-bb6c-685a166e9687" />
 
 ---
@@ -387,6 +391,7 @@ EXCEPTION
 END;
 ```
 **Output**
+
 <img width="521" height="815" alt="image" src="https://github.com/user-attachments/assets/759513ea-e237-41d1-a58f-e4006cb7928e" />
 
 ---
