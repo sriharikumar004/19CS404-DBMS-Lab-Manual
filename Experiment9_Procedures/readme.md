@@ -79,8 +79,7 @@ END;
 ```
 **Output**
 
-
-
+<img width="790" height="482" alt="image" src="https://github.com/user-attachments/assets/6882f5be-fd39-42b6-bb9f-f366e4fb1ab9" />
 
 ---
 
