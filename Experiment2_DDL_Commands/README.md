@@ -105,123 +105,310 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Employees with the following columns:
 
-```sql
--- Paste your SQL code below for Question 1
+EmployeeID as INTEGER
+FirstName as TEXT
+LastName as TEXT
+HireDate as DATE
+For example:
+
+Test	Result
+pragma table_info('Employees');
+cid   name        type        notnull     dflt_value  pk
+----  ----------  ----------  ----------  ----------  ----------
+0     EmployeeID  INTEGER     0                       0
+1     FirstName   TEXT        0                       0
+2     LastName    TEXT        0                       0
+3     HireDate    DATE        0                       0
+
+
+```
+CREATE TABLE Employees(
+EmployeeID  INTEGER,
+FirstName TEXT,
+LastName TEXT,
+HireDate DATE 
+)
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1236" height="301" alt="image" src="https://github.com/user-attachments/assets/57f68d38-9f28-44d2-8703-c55a6768b863" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named Invoices with the following constraints:
 
-```sql
--- Paste your SQL code below for Question 2
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+DueDate as DATE should be greater than the InvoiceDate.
+Amount as REAL should be greater than 0.
+For example:
+
+Test	Result
+INSERT INTO Invoices (InvoiceID, InvoiceDate)
+VALUES (1, '2024-08-08'),(1,'2024-09-08');
+Error: UNIQUE constraint failed: Invoices.InvoiceID
+
+```
+CREATE TABLE Invoices(
+InvoiceID INTEGER primary key,
+InvoiceDate DATE,
+DueDate DATE CHECK(DueDate>InvoiceDate),
+Amount REAL CHECK(Amount>0) 
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1185" height="271" alt="image" src="https://github.com/user-attachments/assets/6b0c8f4a-0662-4a78-ac30-c0cbb9b83ee5" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
+For example:
+
+Test	Result
+-- Attempt to insert a record with NULL FirstName
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Email, Salary, DepartmentID)
+VALUES (1, NULL, 'Doe', 'john.doe@example.com', 50000, 1);
+Error: NOT NULL constraint failed: Employees.FirstName
 
 ```sql
--- Paste your SQL code below for Question 3
+CREATE TABLE Employees(
+EmployeeID primary key,
+FirstName VARCHAR(30) NOT NULL,
+LastName VARCHAR(30) NOT NULL,
+Email VARCHAR(30) UNIQUE,
+Salary INTEGER CHECK(Salary>0),
+DepartmentID INT,
+foreign key(DepartmentID) REFERENCES Departments(DepartmentID)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1260" height="324" alt="image" src="https://github.com/user-attachments/assets/26fd78a9-c33f-472b-8dfd-c8a96430bf93" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Products with the following constraints:
 
-```sql
--- Paste your SQL code below for Question 4
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
+For example:
+
+Test	Result
+INSERT INTO Products
+VALUES (1, NULL,0,5);
+Error: NOT NULL constraint failed: Products.ProductName
+
+```CREATE TABLE Products(
+ProductID primary key,
+ProductName NOT NULL,
+Price real CHECK(Price>0),
+Stock integer CHECK(Stock>0) 
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1050" height="238" alt="image" src="https://github.com/user-attachments/assets/a8a583cc-a147-436f-9980-5c8647043ec7" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Insert the below data into the Books table, allowing the Publisher and Year columns to take their default values.
 
-```sql
--- Paste your SQL code below for Question 5
+ISBN             Title                 Author
+---------------  --------------------  ---------------
+978-6655443321   Big Data Analytics    Karen Adams
+
+Note: The Publisher and Year columns will use their default values.
+ 
+ 
+For example:
+
+Test	Result
+SELECT ISBN, Title, Author
+FROM Books 
+
+
+ISBN             Title                 Author
+---------------  --------------------  ---------------
+978-6655443321   Big Data Analytics    Karen Adams
+
+```INSERT INTO Books(ISBN,Title,Author)
+VALUES('978-6655443321','Big Data Analytics','Karen Adams');
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1055" height="277" alt="image" src="https://github.com/user-attachments/assets/c6e0d762-af44-4fb9-b858-ec25f63071ca" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
+For example:
 
-```sql
--- Paste your SQL code below for Question 6
+Test	Result
+INSERT INTO item VALUES("ITM5","Charlie Gold",700,"COM4");
+UPDATE company SET com_id='COM5' WHERE com_id='COM4';
+SELECT * FROM item;
+item_id     item_desc     rate        icom_id
+----------  ------------  ----------  ----------
+ITM5        Charlie Gold  700         COM5
+
+```CREATE TABLE item(
+item_id TEXT primary key,
+item_desc TEXT NOT NULL,
+rate INTEGER NOT NULL,
+icom_id TEXT(4),
+foreign key(icom_id) REFERENCES company(com_id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1186" height="313" alt="image" src="https://github.com/user-attachments/assets/420a367e-e541-484c-ba69-826bdfb0c26f" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL Query  to change the name of attribute "name" to "first_name"  and add mobilenumber as number ,DOB as Date in the table Companies. 
 
-```sql
--- Paste your SQL code below for Question 7
+ 
+
+ 
+
+For example:
+
+Test	Result
+pragma table_info('Companies');
+cid         name        type        notnull     dflt_value  pk
+----------  ----------  ----------  ----------  ----------  ----------
+0           id          int         0                       0
+1           first_name  varchar(50  0                       0
+2           address     text        0                       0
+3           email       varchar(50  0                       0
+4           phone       varchar(10  0                       0
+5           mobilenumb  number      0                       0
+6           DOB         Date        0                       0
+
+```ALTER TABLE Companies RENAME COLUMN name TO first_name;
+ALTER TABLE Companies ADD COLUMN mobilenumber number;
+ALTER TABLE Companies ADD COLUMN DOB Date;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1278" height="362" alt="image" src="https://github.com/user-attachments/assets/366f7e69-b8e8-45e5-aa40-e39120cf0799" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to Add a new column Mobilenumber as number in the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 8
+Sample table: Student_details
+
+ cid              name             type             notnu  dflt_value  pk
+---------------  ---------------  ---------------  -----  ----------  ----------
+0                RollNo           int              0                  1
+1                Name             VARCHAR(100)     1                  0
+2                Gender           TEXT             1                  0
+3                Subject          VARCHAR(30)      0                  0
+4                MARKS            INT (3)          0                  0
+For example:
+
+Test	Result
+pragma table_info('Student_details');
+cid    name             type             notnu  dflt_value  pk
+-----  ---------------  ---------------  -----  ----------  ----------
+0      RollNo           int              0                  1
+1      Name             VARCHAR(100)     1                  0
+2      Gender           TEXT             1                  0
+3      Subject          VARCHAR(30)      0                  0
+4      MARKS            INT (3)          0                  0
+5      Mobilenumber     number           0                  0
+```
+ALTER TABLE Student_details ADD COLUMN Mobilenumber number;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1272" height="338" alt="image" src="https://github.com/user-attachments/assets/f8b59d1e-0720-48ca-aa4e-116d0f6f901d" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Insert the following customers into the Customers table:
 
-```sql
--- Paste your SQL code below for Question 9
+CustomerID  Name         Address     City        ZipCode
+----------  -----------  ----------  ----------  ----------
+302         Laura Croft  456 Elm St  Seattle     98101
+303         Bruce Wayne  789 Oak St  Gotham      10001
+For example:
+
+Test	Result
+SELECT * FROM Customers;
+
+CustomerID  Name         Address     City        ZipCode
+----------  -----------  ----------  ----------  ----------
+302         Laura Croft  456 Elm St  Seattle     98101
+303         Bruce Wayne  789 Oak St  Gotham      10001
+```INSERT INTO Customers (CustomerID, Name ,Address,City,ZipCode)
+values (302,'Laura Croft','456 Elm St','Seattle',98101);
+
+INSERT INTO Customers (CustomerID, Name ,Address,City,ZipCode)
+values (303,'Bruce Wayne','789 Oak St','Gotham',10001); 
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1158" height="320" alt="image" src="https://github.com/user-attachments/assets/c3a5e22a-798b-4e41-afc5-d8ebb0e12002" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all students from Archived_students table into the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 10
+cid         name        type        notnull     dflt_value  pk
+----------  ----------  ----------  ----------  ----------  ----------
+0           RollNo      INT           0                       1
+1           Name        VARCHAR(100)  0                       0
+2           Gender      VARCHAR(10)   0                       0
+3           Subject     VARCHAR(50)   0                       0
+4           MARKS       INT           0                       0
+For example:
+
+Test	Result
+select * from student_details;
+RollNo      Name           Gender      Subject     MARKS
+----------  -------------  ----------  ----------  ----------
+1           Alice Johnson  Female      Math        85
+2           Bob Smith      Male        Science     90
+3           Charlie Brown  Male        English     78
+
+```INSERT INTO Student_details
+SELECT * FROM Archived_students;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1155" height="265" alt="image" src="https://github.com/user-attachments/assets/acb087fe-0f47-40cc-92e7-507e2bd83f33" />
 
 
 ## RESULT
