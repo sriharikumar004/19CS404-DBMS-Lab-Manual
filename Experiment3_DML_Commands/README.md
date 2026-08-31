@@ -76,7 +76,8 @@ EMPLOYEE_ID  FIRST_NAME  EMAIL       SALARY      JOB_ID
 153          Christophe  updated     8500        SA_REP
 154          Nanette     updated     8000        SA_REP
 
-```update employees
+```
+update employees
 set salary=salary+500,
     email='updated'
 where job_id='SA_REP'
@@ -103,7 +104,8 @@ reorder_lvl
 quantity
 supplier_id
 
-```update products
+```
+update products
 set sell_price=sell_price*1.10
 where category='Bakery';
 ```
@@ -134,7 +136,8 @@ changes()
 ----------
 1
 
-```update suppliers
+```
+update suppliers
 set address='58 Lakeview, Magnolia'
 where supplier_id=5;
 ```
@@ -159,7 +162,8 @@ reorder_lvl
 quantity
 supplier_id
 
-```update Products
+```
+update Products
 set reorder_lvl=20
 where quantity<10
   and category='Snacks';
@@ -196,7 +200,8 @@ EMPLOYEE_ID  FIRST_NAME  EMAIL          COMMISSION_PCT
 -----------  ----------  -------------  --------------
 205          Shelley     not available  0.55
 
-```update Employees
+```
+update Employees
 set EMAIL='not available',
     COMMISSION_PCT=0.55
 where department_id=110;
@@ -234,7 +239,8 @@ GRADE
 1
 0
 
-```sdelete from Customer
+```
+delete from Customer
 where grade>=2
 ```
 
@@ -258,10 +264,11 @@ Sample table: Customer
 | C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
 | C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
 | C00020    | Albert      | New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
-```sql
--- Paste your SQL code below for Question 7
 ```
-
+delete from Customer
+where cust_country='India'
+  and cust_city !='Chennai';
+```
 **Output:**
 
 <img width="1383" height="496" alt="image" src="https://github.com/user-attachments/assets/346da959-410f-496b-b9e7-36bd332f5a4f" />
@@ -312,7 +319,8 @@ Sample table: Doctors
 
 attributes : doctor_id, first_name, last_name, specialization
 
-```delete from Doctors
+```
+delete from Doctors
 where specialization= 'Cardiology';
 ```
 
