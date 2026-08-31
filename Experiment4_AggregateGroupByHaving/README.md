@@ -146,7 +146,6 @@ Texas
 For example:
 Result
 COUNT
-----------
 5
 
 ```sql
@@ -163,10 +162,8 @@ Write a SQL query to calculate the total number of working hours of all employee
 
 Sample table: employee1
 For example:
-
 Result
 Total working hours
--------------------
 111
 
 ```sql
@@ -198,7 +195,6 @@ For example:
 
 Result
 total
-----------
 225
 
 ```sql
@@ -226,7 +222,6 @@ For example:
 
 Result
 age_difference
---------------
 13
 
 ```sql
